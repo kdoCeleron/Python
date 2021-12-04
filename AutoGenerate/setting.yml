@@ -1,0 +1,33 @@
+{
+  # C言語ソースのディレクトリ構成からCMakefileList.txtを生成するための定義
+  "CMakefileList": {
+      # 実行モジュールおよびライブラリが配置されているディレクトリ
+      "module_directories":
+        # 探索するルートフォルダからの相対パスを指定する
+        [
+          { "kind": "executable", "path": "a", },
+          { "kind": "archive", "path": "a", },
+          { "kind": "sharedObj", "path": "a", },
+        ],
+      # ヘッダファイルの設定
+      "header_file_settings": {
+        "extension": [ ".h" ],
+        "relation_include_key" : "#include"
+      },
+      # ソースファイルの設定
+      "source_file_extensions": {
+        "extension": [ ".c" ],
+        "relation_include_key" : "#include",
+      },
+      # コンパイラの設定
+      "compiler": {
+        "cmake_version": "2.8.12.2",
+        "clang_iso": "C11",
+        "cc": "gcc",
+        "options": [ "-g3", " -Wextra", "-std=c11", "-Wall" ,"-Werror" ],
+      },
+      # 除外パス(探索するルートフォルダからの相対パスを指定する)
+      "exclude_dirs": [ ".idea", "cmake-build-debug" ],
+      "exclude_files": [ ],
+    }
+}
