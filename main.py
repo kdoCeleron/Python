@@ -33,7 +33,10 @@ if __name__ == '__main__':
     input_val = input('input any text: ')
     print(f'{input_val} input!')
 
-    lamda_test_func()
+    # lamda_test_func()
+
+    tmp = "abc".replace("\\", "/")
+    print(tmp)
 
     # omikuji()
     # ret1, ret2 = print_hi('PyCharm')

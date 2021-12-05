@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION {{ cmake_version }})
 project({{ project_name }})
 set(CMAKE_C_STANDARD {{ clang_iso }})
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} {% for item in opt_list %}{{ item }} {% endfor %})
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} {% for item in opt_list %}{{ item }} {% endfor %}")
 
 {% for item in inc_dir_list %}
 include_directories({{ item }})
@@ -15,7 +15,11 @@ add_executable({{ project_name }} {% for item in source_list %}{{ item }} {% end
 add_library({{ project_name }} {% for item in source_list %}{{ item }} {% endfor %})
 {% endif %}
 
-{% if isLinkLibs %}
+{% if lib_any %}
 target_link_libraries({{ project_name }} {% for item in lib_list %}{{ item }} {% endfor %})
 {% endif %}
+
+{% for item in sub_directories %}
+add_subdirectory({{ item }})
+{% endfor %}
 
